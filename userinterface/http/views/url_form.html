@@ -1,0 +1,36 @@
+{{ define "title" }}Analyze URL{{ end }}
+
+{{ define "content" }}
+<h1>Analyze URL</h1>
+
+{{ if .Flash }}
+<p class="error">{{ .Flash }}</p>
+{{ end }}
+
+<form method="POST" action="/">
+    <label>URL
+        <input type="text" name="url" value="{{ .Form.Url }}">
+    </label>
+
+    <button type="submit">Analyze</button>
+</form>
+
+{{ if .Info }}
+<h2>URL info</h2>
+
+<p>URL: {{ .Info.Url }}</p>
+<p>HTML version: {{ .Info.HTMLVersion }}</p>
+<p>Page title: {{ .Info.Title }}</p>
+<p>Count of internal links: {{ .Info.InternalLinks }}</p>
+<p>Count of external links: {{ .Info.ExternalLinks }}</p>
+<p>Is exist inaccessible link: {{ if gt .Info.InaccessibleLinks 0 }} YES {{ else }} NO {{ end }}</p>
+<p>Count of inaccessible links: {{ .Info.InaccessibleLinks }}</p>
+<ul><h3>Headings counts:</h3>
+    {{ range $index, $value := .Info.HeadingsCounts }}
+    <li>{{ $index }}: {{ $value }}</li>
+    {{ end }}
+</ul>
+
+{{ end }}
+
+{{ end }}

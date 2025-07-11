@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ block "title" . }}Test task implementation{{ end }}</title>
+    <style>
+        body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 600px; margin: 0 auto; }
+        input, button { width: 100%; padding: .6rem; border-radius: 6px; border:1px solid #ccc; }
+        button { margin-top: 1.5rem; background:#0069d9; color:#fff; border:none; cursor:pointer; }
+        button:hover { background:#0053b3; }
+        .error { color:#c00; margin-top:.5rem; }
+    </style>
+</head>
+<body>
+{{ block "content" . }}{{ end }}
+</body>
+</html>
